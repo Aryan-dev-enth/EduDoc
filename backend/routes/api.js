@@ -10,10 +10,10 @@ const multer = require('multer');
 const { google } = require('googleapis');
 const path = require('path');
 const fs = require('fs');
-CLIENT_ID = '77935883416-ea6c1p97s561dbgos15pgonglk1nobdb.apps.googleusercontent.com';
-CLIENT_SECRET = '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';
-REDIRECT_URI = 'https://developers.google.com/oauthplayground';
-REFRESH_TOKEN = '1//04-rhPgWVS-kMCgYIARAAGAQSNwF-L9IrZFiBzoSGYPQVuOiDRm1knTOZs5XoYXEnKfGAsyMwbX2o3JTnNHMZrWkotejAjXA-sKI';
+CLIENT_ID = process.env.CLIENT_ID;
+CLIENT_SECRET = process.env.CLIENT_SECRET;
+REDIRECT_URI = process.env.REDIRECT_URI;
+REFRESH_TOKEN = process.env.REFRESH_TOKEN;
 
 
 const oauth2client = new google.auth.OAuth2(
