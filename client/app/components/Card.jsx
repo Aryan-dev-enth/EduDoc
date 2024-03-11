@@ -5,7 +5,7 @@ const Card = () => {
     <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden my-4 shadow-md hover:shadow-lg transition duration-300">
       <img
         className="w-full h-40 object-cover object-center"
-        src="https://www.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-600nw-1037719192.jpg" // Replace with the actual image source
+        src="https://shorturl.at/hFGTW" // Replace with the actual image source
         alt="PDF Preview"
       />
       <div className="p-4">
