@@ -1,8 +1,10 @@
+
 import express from 'express';
-const router = express.Router();
+import { upload } from '../middlewares/multer.middleware.js';
 import NoteController from '../controllers/noteController.js';
 
-router.post("/notes", NoteController.createNote);
+const router = express.Router();
 
+router.post("/notes", upload.single('file'), NoteController.createNote);
 
 export default router;
