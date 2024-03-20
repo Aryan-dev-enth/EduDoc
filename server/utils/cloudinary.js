@@ -1,10 +1,12 @@
 import { google } from 'googleapis';
+import dotenv from 'dotenv';
+dotenv.config();
 import fs from 'fs';
 
-const CLIENT_ID = '77935883416-ea6c1p97s561dbgos15pgonglk1nobdb.apps.googleusercontent.com';
-const CLIENT_SECRET = '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';
-const REDIRECT_URI = 'https://developers.google.com/oauthplayground';
-const REFRESH_TOKEN = '1//04-rhPgWVS-kMCgYIARAAGAQSNwF-L9IrZFiBzoSGYPQVuOiDRm1knTOZs5XoYXEnKfGAsyMwbX2o3JTnNHMZrWkotejAjXA-sKI';
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const REDIRECT_URI = process.env.REDIRECT_URI;
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
 
 const oauth2client = new google.auth.OAuth2(
     CLIENT_ID,
