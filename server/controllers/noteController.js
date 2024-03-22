@@ -19,7 +19,7 @@ class NoteController {
         });
       }
 
-      const googleDriveResponse = await uploadToGoogleDrive(fileUrl); // Add this line
+      const googleDriveResponse = await uploadToGoogleDrive(fileUrl);
 
       if (!googleDriveResponse) {
         return res.status(500).json({
@@ -28,15 +28,14 @@ class NoteController {
         });
       }
 
-      console.log(googleDriveResponse);
-
       const newNote = new NoteModel({
         title,
         content,
-        file_url:await generatePublicURL(googleDriveResponse),
+        file_url: await generatePublicURL(googleDriveResponse),
+        file_id: googleDriveResponse,
+        verified: false
       });
 
-      // Save the note to the database
       try {
         const savedNote = await newNote.save();
 
@@ -95,7 +94,51 @@ class NoteController {
       res.json({
         status: true,
         data: notes,
-        message: "Notes retrieved successfully",
+        message: "All notes retrieved successfully",
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: false,
+        message: error.message,
+      });
+    }
+  };
+
+  static getVerifiedNotes = async (req, res) => {
+    try {
+      const verifiedNotes = await NoteModel.find({ verified: true });
+
+      res.json({
+        status: true,
+        data: verifiedNotes,
+        message: "Verified notes retrieved successfully",
+      });
+    } catch (error) {
+      res.status(500).json({
+        status: false,
+        message: error.message,
+      });
+    }
+  };
+
+  static verifyNote = async (req, res) => {
+    try {
+      console.log(req.params)
+      const noteId = req.params.id;
+
+      const note = await NoteModel.findByIdAndUpdate(noteId, { verified: true }, { new: true });
+
+      if (!note) {
+        return res.status(404).json({
+          status: false,
+          message: "Note not found",
+        });
+      }
+
+      res.json({
+        status: true,
+        data: note,
+        message: "Note verified successfully",
       });
     } catch (error) {
       res.status(500).json({

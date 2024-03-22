@@ -14,6 +14,14 @@ const noteSchema = new mongoose.Schema({
     file_url: {
         type: Object,
         required: true
+    },
+    file_id: {
+        type: String,
+        required: true
+    },
+    verified: {
+        type: Boolean,
+        required: true
     }
 });
 

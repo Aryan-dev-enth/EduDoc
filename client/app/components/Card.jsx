@@ -1,32 +1,53 @@
 import React from 'react';
+import axios from 'axios'; // Import axios for making HTTP requests
 
-const Card = () => {
+const Card = ({ title, content, author, pages, fileUrl, admin, noteId, onVerify }) => {
+  const handleVerify = async () => {
+    try {
+      // Make an API call to verify the note with the given ID
+      const response = await axios.patch(`http://localhost:8000/api/verifyNotes/${noteId}`);
+      // Handle the response if needed
+      
+    } catch (error) {
+      console.error('Error verifying note:', error);
+    }
+  };
+
   return (
     <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden my-4 shadow-md hover:shadow-lg transition duration-300">
       <img
         className="w-full h-40 object-cover object-center"
-        src="https://shorturl.at/hFGTW" // Replace with the actual image source
+        src="vercel.svg"
         alt="PDF Preview"
       />
       <div className="p-4">
-        <h2 className="text-xl font-semibold mb-2 text-gray-800">PDF Title</h2>
+        <h2 className="text-xl font-semibold mb-2 text-gray-800">{title}</h2>
         <p className="text-gray-600 text-sm">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-          varius justo eu neque blandit, eu fermentum nulla blandit.
+          {content}
         </p>
       </div>
       <div className="flex flex-col sm:flex-row justify-between items-center p-4 bg-gray-100">
         <span className="text-xs text-gray-600 mb-2 sm:mb-0">
-          Author: John Doe
+          Author: {author}
         </span>
-        <span className="text-xs text-gray-600 mb-2 sm:mb-0">Pages: 10</span>
+        <span className="text-xs text-gray-600 mb-2 sm:mb-0">Pages: {pages}</span>
         <div className="flex justify-between items-center gap-2">
-          <button className="bg-secondary text-white px-4 py-2 rounded-full  sm:mb-0 sm:mr-2 hover:scale-105 transition duration-300">
+          <a href={fileUrl.webViewLink} target="_blank" rel="noopener noreferrer" className="bg-secondary text-white px-4 py-2 rounded-full sm:mb-0 sm:mr-2 hover:scale-105 transition duration-300">
             View
-          </button>
-          <button className="bg-secondary text-white px-4 py-2 rounded-full hover:scale-105 transition duration-300">
+          </a>
+          <a href={fileUrl.webContentLink} target="_blank" rel="noopener noreferrer" className="bg-secondary text-white px-4 py-2 rounded-full hover:scale-105 transition duration-300">
             Download
-          </button>
+          </a>
+          {admin && ( // Conditionally render admin options if admin is true
+            <div>
+              <button onClick={handleVerify} className="bg-green-500 text-white px-4 py-2 rounded-full hover:scale-105 transition duration-300">
+                Verify
+              </button>
+              <button className="bg-red-500 text-white px-4 py-2 rounded-full hover:scale-105 transition duration-300">
+                Decline
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
