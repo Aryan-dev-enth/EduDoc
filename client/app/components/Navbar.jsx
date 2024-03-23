@@ -19,7 +19,7 @@ const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <nav className="font-display w-full h-[60px] sm:h-[100px] bg-secondary fixed top-0 left-0 flex items-center justify-between px-4 sm:px-10 z-50">
+    <nav className=" w-full h-[80px]  bg-secondary fixed top-0 left-0 flex items-center justify-between px-4 sm:px-10 z-50">
       <div className="flex justify-start w-1/2">
         <p
           className="text-white text-[20px] sm:text-[40px] cursor-pointer"
@@ -31,7 +31,7 @@ const Navbar = () => {
         </p>
       </div>
       <div className="flex justify-end w-1/2 items-center">
-        <div className="hidden sm:flex justify-end w-full">
+        <div className=" hidden lg:flex justify-end w-full">
           <ul className="flex justify-around items-center text-white list-none w-full max-w-md">
             <li>
               <a href="#">Notes</a>
@@ -44,7 +44,7 @@ const Navbar = () => {
             </li>
             <SignedIn>
               <li>
-                <UserButton />
+                <UserButton afterSignOutUrl="/" />
               </li>
               <li>
                 <SignOutButton />
@@ -57,7 +57,7 @@ const Navbar = () => {
             </SignedOut>
           </ul>
         </div>
-        <div className="sm:hidden relative">
+        <div className=" lg:hidden relative">
           <Hamburger
             toggled={isOpen}
             toggle={setOpen}

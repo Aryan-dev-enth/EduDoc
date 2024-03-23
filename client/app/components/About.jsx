@@ -1,19 +1,21 @@
 import React from "react";
-
+import aboutanimation from '/public/about animation.json'
+import Lottie from "lottie-react";
 const About = () => {
   return (
-    <div className="w-screen h-auto px-4 py-16  mt-10 flex flex-row-reverse justify-evenly items-center gap-10">
-      <div className="content w-[80%] sm:w-[50%] flex flex-col justify-center sm:items-start text-center sm:text-left mt-5">
-        <h2 className="text-[25px] sm:text-[45px]">Unlock Academic Success</h2>
-        <p className="text-[15px] sm:text-[30px] text-gray-500">
+    <div className=" h-auto w-screen flex justify-center items-center flex-col-reverse md:flex-row sm:justify-center overflow-hidden ">
+      <div className=" w-full h-full flex flex-col justify-center items-center lg:pl-20 md:items-start ">
+        <h2 className=" text-3xl md:text-5xl ">Unlock Academic Success</h2>
+        <p className=" md:text-[25px] font-normal  text-gray-500 text-center md:text-start p-5 md:p-0 ">
           Welcome to the realm of academic excellence where you can find
           meticulously crafted notes and previous year question papers to ace
           your courses. Say goodbye to endless searches and step into your own
           digital library.
         </p>
-        <div className="data">data to be displayed</div>
       </div>
-      <img src="about.png" alt="" className="w-[30%] hidden sm:flex"/>
+      <div className="w-full h-full px-4 flex justify-center  items-center">
+      <Lottie animationData={aboutanimation} loop={true} className='w-[70%] h-auto' />
+      </div>
     </div>
   );
 };

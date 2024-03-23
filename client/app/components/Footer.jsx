@@ -27,7 +27,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bottom flex justify-center items-center mt-8">
-        <p className="text-xs text-gray-300">Made with ❤️ by Deepak & Aryan</p>
+        <p className="text-xs text-gray-300">Designed and developed by <a href="" className="underline"> Deepak</a> & <a href="" className="underline">Aryan</a></p>
       </div>
     </div>
   );

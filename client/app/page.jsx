@@ -7,7 +7,6 @@ import Search from "./components/Search";
 import AdminDashboard from './components/AdminDashboard';
 import UserDashboard from './components/UserDashboard';
 import Feedback from "./components/Feedback";
-import Footer from "./components/Footer";
 import Seperator from "./components/Seperator";
 
 export default function Home() {
@@ -20,16 +19,16 @@ export default function Home() {
   // Check if user is authenticated
   if (!user) {
     return (
-      <div className="mainArea w-screen h-auto bg-primary font-display">
+      <div className="container w-screen h-auto bg-primary overflow-hidden">
         <Navbar />
-        <div className="mainContent pt-[70px] sm:pt-[100px]">
+        <div className=" container pt-[70px] sm:pt-[100px] overflow-hidden">
           <Landing />
           <Seperator />
           <About />
           <Seperator />
           <Search />
           <Feedback />
-          <Footer />
+          
         </div>
       </div>
     );
@@ -39,9 +38,9 @@ export default function Home() {
   const isAdmin = user.publicMetadata?.admin === 'true';
 
   return (
-    <div className="mainArea w-screen h-auto bg-primary font-display">
+    <div className=" w-screen h-auto bg-primary font-display">
       <Navbar />
-      <div className="mainContent pt-[70px] sm:pt-[100px]">
+      <div className=" pt-[70px] sm:pt-[100px]">
         <Landing />
         <Seperator />
         <About />
@@ -49,7 +48,6 @@ export default function Home() {
         <Search />
         {isAdmin ? <AdminDashboard /> : <UserDashboard />}
         <Feedback />
-        <Footer />
       </div>
     </div>
   );

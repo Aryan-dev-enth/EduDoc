@@ -1,10 +1,12 @@
 'use client'
 import React from 'react'
 import { useRouter } from 'next/navigation'
+import Lottie from "lottie-react";
+import animation from '/public/Landing animation.json'
 const Landing = () => {
   const router=useRouter();
   return (
-    <div className='h-auto w-screen flex flex-col-reverse sm:flex-row sm:justify-center items-center sm:px-10'>
+    <div className='h-auto w-screen flex flex-col-reverse md:flex-row sm:justify-center items-center sm:px-10'>
       <div className="left px-4 w-full">
         <h1 className='text-3xl sm:w-[80%] sm:text-[60px] leading-normal text-center sm:text-left'>
           Ace your classes with top-notch resources!
@@ -18,8 +20,8 @@ const Landing = () => {
           }}>Find Papers</button>
         </div>
       </div>
-      <div className="right w-full px-4 flex justify-center items-center">
-        <img src="landing.png" alt="landing..." className='w-[90%] h-[90%]'/>
+      <div className="w-full px-4 flex justify-center items-center">
+      <Lottie animationData={animation} loop={true} className='w-[90%] h-[90%]' />
       </div>
      
     </div>
