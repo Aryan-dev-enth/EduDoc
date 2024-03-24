@@ -37,7 +37,6 @@ const uploadToGoogleDrive = async (filePath) => {
             media,
         });
 
-        console.log('File Id:', file.data.id);
         return file.data.id;
     } catch (err) {
         console.error('Error uploading file to Google Drive:', err);

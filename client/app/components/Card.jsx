@@ -6,7 +6,7 @@ const Card = ({ title, content, author, pages, fileUrl, admin, noteId, onVerify 
     try {
       // Make an API call to verify the note with the given ID
       const response = await axios.patch(`http://localhost:8000/api/verifyNotes/${noteId}`);
-      // Handle the response if needed
+      console.log(response)
       
     } catch (error) {
       console.error('Error verifying note:', error);

@@ -34,7 +34,10 @@ const Navbar = () => {
         <div className=" hidden lg:flex justify-end w-full">
           <ul className="flex justify-around items-center text-white list-none w-full max-w-md">
             <li>
-              <a href="#">Notes</a>
+              <a href="/Notes">Notes</a>
+            </li>
+            <li>
+              <a href="/QuestionPaper">PYQ</a>
             </li>
             <li>
               <a href="#">CGPA Calculator</a>
@@ -68,13 +71,16 @@ const Navbar = () => {
             <div className="absolute right-5 top-16 w-56 bg-black text-white rounded-xl py-4 px-2 opacity-90 transition-all duration-300">
               <ul aria-label="Mobile menu" className="space-y-4">
                 <li className="mb-4 text-center">
-                  <a href="#">Notes</a>
+                  <a href="/Notes">Notes</a>
                 </li>
                 <li className="mb-4 text-center">
-                  <a href="#">CGPA Calculator</a>
+                  <a href="/QuestionPaper">PYQ</a>
                 </li>
                 <li className="text-center">
                   <a href="/Contribute">Contribute</a>
+                </li>
+                <li className="mb-4 text-center">
+                  <a href="#">CGPA Calculator</a>
                 </li>
                 <SignedIn className="text-white flex items-center">
                   <li>

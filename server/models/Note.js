@@ -21,7 +21,21 @@ const noteSchema = new mongoose.Schema({
     },
     verified: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
+    },
+    type: {
+        type: String
+    },
+    subject: {
+        type: String,
+        default: "NA"
+    },
+    branch: {
+        type: String,
+    },
+    college: {
+        type: String,
     }
 });
 

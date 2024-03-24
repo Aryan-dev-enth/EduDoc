@@ -1,5 +1,5 @@
 import NoteModel from "../models/Note.js";
-import fs from 'fs'
+import fs from "fs";
 import {
   uploadToGoogleDrive,
   generatePublicURL,
@@ -9,8 +9,8 @@ import {
 class NoteController {
   static createNote = async (req, res) => {
     try {
-      const { title, content } = req.body;
-      const fileUrl = req.file.path; 
+      const { title, content, type, subject, college, branch } = req.body;
+      const fileUrl = req.file.path;
 
       if (!title || !content || !fileUrl) {
         return res.status(400).json({
@@ -33,7 +33,11 @@ class NoteController {
         content,
         file_url: await generatePublicURL(googleDriveResponse),
         file_id: googleDriveResponse,
-        verified: false
+        verified: false,
+        type,
+        subject,
+        branch,
+        college,
       });
 
       try {
@@ -66,6 +70,7 @@ class NoteController {
       const noteId = req.params.id;
 
       const note = await NoteModel.findByIdAndDelete(noteId);
+      const response = await deleteFromGoogleDrive(noteId);
 
       if (!note) {
         return res.status(404).json({
@@ -89,12 +94,12 @@ class NoteController {
 
   static getAllNotes = async (req, res) => {
     try {
-      const notes = await NoteModel.find();
+      const verifiedNotes = await NoteModel.find({ verified: false });
 
       res.json({
         status: true,
-        data: notes,
-        message: "All notes retrieved successfully",
+        data: verifiedNotes,
+        message: "Non Verified notes retrieved successfully",
       });
     } catch (error) {
       res.status(500).json({
@@ -123,10 +128,13 @@ class NoteController {
 
   static verifyNote = async (req, res) => {
     try {
-      console.log(req.params)
       const noteId = req.params.id;
 
-      const note = await NoteModel.findByIdAndUpdate(noteId, { verified: true }, { new: true });
+      const note = await NoteModel.findByIdAndUpdate(
+        noteId,
+        { verified: true },
+        { new: true }
+      );
 
       if (!note) {
         return res.status(404).json({
