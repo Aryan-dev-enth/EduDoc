@@ -38,7 +38,7 @@ export default function Home() {
   const isAdmin = user.publicMetadata?.admin === 'true';
 
   return (
-    <div className=" w-screen h-auto bg-primary font-display">
+    <div className=" w-screen h-auto bg-primary">
       <Navbar />
       <div className=" pt-[70px] sm:pt-[100px]">
         <Landing />

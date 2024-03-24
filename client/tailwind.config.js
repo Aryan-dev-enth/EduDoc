@@ -10,7 +10,7 @@ module.exports = {
       'sans': ['ui-sans-serif', 'system-ui'],
       'serif': ['ui-serif', 'Georgia'],
       'mono': ['ui-monospace', 'SFMono-Regular'],
-      'display': ['Madimi One'],  // Corrected font family name
+      'display': ['Madimi One'], 
       'body': ['"Open Sans"'],
     },
     extend: {
