@@ -14,9 +14,9 @@ const Card = ({ title, content, author, pages, fileUrl, admin, noteId, onVerify 
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden my-4 shadow-md hover:shadow-lg transition duration-300">
+    <div className="max-w-md mx-auto bg-white rounded-md overflow-hidden my-4 shadow-md hover:shadow-lg transition duration-300  ">
       <img
-        className="w-full h-40 object-cover object-center"
+        className="w-full h-52 object-cover object-center"
         src="vercel.svg"
         alt="PDF Preview"
       />
@@ -39,7 +39,7 @@ const Card = ({ title, content, author, pages, fileUrl, admin, noteId, onVerify 
             Download
           </a>
           {admin && ( // Conditionally render admin options if admin is true
-            <div>
+            <div className='flex flex-col gap-3'>
               <button onClick={handleVerify} className="bg-green-500 text-white px-4 py-2 rounded-full hover:scale-105 transition duration-300">
                 Verify
               </button>

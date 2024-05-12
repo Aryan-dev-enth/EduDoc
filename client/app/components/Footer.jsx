@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
@@ -13,9 +14,15 @@ const Footer = () => {
         <div className="right  w-full flex flex-col sm:flex-row sm:gap-24 justify-evenly items-center">
           <ul className="text-center sm:text-left list-none text-gray-300">
             Resources
-            <li className="text-sm text-gray-400">Notes</li>
+            <Link href="../Search">
+            <li  className="text-sm text-gray-400">Notes</li>
+            </Link>
+            <Link href="../Search">
             <li className="text-sm text-gray-400">Papers</li>
+            </Link>
+            <Link href="../CGPA">
             <li className="text-sm text-gray-400">CGPA Calculator</li>
+            </Link>
           </ul>
           <div className="text-center sm:text-left text-sm text-gray-300">
             For inquiries, reach us at:

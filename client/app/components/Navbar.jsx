@@ -34,13 +34,13 @@ const Navbar = () => {
         <div className=" hidden lg:flex justify-end w-full">
           <ul className="flex justify-around items-center text-white list-none w-full max-w-md">
             <li>
-              <a href="/Notes">Notes</a>
+              <a href="../Search">Notes</a>
             </li>
             <li>
-              <a href="/QuestionPaper">PYQ</a>
+              <a href="../Search">PYQ</a>
             </li>
             <li>
-              <a href="#">CGPA Calculator</a>
+              <a href="../CGPA">CGPA Calculator</a>
             </li>
             <li>
               <a href="/Contribute">Contribute</a>

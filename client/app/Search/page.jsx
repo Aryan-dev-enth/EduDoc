@@ -5,7 +5,7 @@ import CardContainer from "../components/CardContainer";
 
 const page = () => {
   return (
-    <div className="min-h-screen w-screen bg-primary font-display pt-20">
+    <div className="min-h-screen w-screen bg-primary  pt-20">
         <Navbar/>
         <Search />
         <CardContainer/>

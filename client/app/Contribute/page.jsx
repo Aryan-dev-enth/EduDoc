@@ -61,15 +61,16 @@ const Contribute = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row items-center gap-5 md:h-screen p-5">
+    <div className="container mx-auto px-4">
+    <div className="flex flex-col lg:flex-row items-center gap-5 md:min-h-screen p-5">
       <div className="lg:w-1/2 h-full flex justify-center md:justify-start items-center pt-28">
         <Lottie
           animationData={contributeanimation}
           loop={true}
-          className="w-[75%] h-auto hidden sm:block"
+          className="w-[100%] h-auto hidden sm:block"
         />
       </div>
-      <div className="lg:w-1/2 h-full flex flex-col justify-center items-center  ">
+      <div className="lg:w-1/2 h-full flex flex-col justify-center items-center pt-20">
         <h2 className="text-3xl font-bold p-5">Contribute a Note</h2>
         <form
           onSubmit={handleSubmit}
@@ -213,15 +214,12 @@ const Contribute = () => {
           >
             {isUploading ? "Uploading..." : "Submit"}
           </button>
-        </form>
-        {errorMessage && (
-          <div className="text-red-600 mt-4">{errorMessage}</div>
-        )}
-        {successMessage && (
-          <div className="text-green-600 mt-4">{successMessage}</div>
-        )}
-      </div>
+          </form>
+      {errorMessage && <div className="text-red-600 mt-4">{errorMessage}</div>}
+      {successMessage && <div className="text-green-600 mt-4">{successMessage}</div>}
     </div>
+  </div>
+</div>
   );
 };
 

@@ -8,6 +8,7 @@ import AdminDashboard from './components/AdminDashboard';
 import UserDashboard from './components/UserDashboard';
 import Feedback from "./components/Feedback";
 import Seperator from "./components/Seperator";
+import CardContainer from "./components/CardContainer";
 
 export default function Home() {
   const { user, isLoading } = useUser();
@@ -27,6 +28,7 @@ export default function Home() {
           <About />
           <Seperator />
           <Search />
+          <CardContainer/>
           <Feedback />
           
         </div>

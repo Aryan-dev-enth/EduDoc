@@ -4,8 +4,8 @@ import CardContainer from './CardContainer';
 
 const AdminDashboard = () => {
   return (
-    <div>
-      <h1>Admin Dashboard</h1>
+    <div className='w-full h-screen'>
+      <h1 className='text-5xl'>Admin Dashboard</h1>
       <CardContainer isAdmin={true} />
     </div>
   );

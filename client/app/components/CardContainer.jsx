@@ -11,7 +11,6 @@ const CardContainer = ({ isAdmin }) => {
     const fetchData = async () => {
       const endpoint = isAdmin ? '/adminNotes' : '/userNotes';
       try {
-
         const response = await axios.get(`http://localhost:8000/api${endpoint}`);
         console.log(response)
         setNotes(response.data.data);
@@ -25,14 +24,14 @@ const CardContainer = ({ isAdmin }) => {
   }, [isAdmin]);
 
   return (
-    <div className='w-full h-full flex flex-wrap px-8 sm:px-24 '>
+    <div className='w-full flex flex-wrap p-5 '>
       {isLoading ? (
         <p>Loading...</p>
-      ) : notes.length === 0 ? (
+        ) : notes.length === 0 ? (
         <p>Nothing to display</p>
       ) : (
-        notes.map((note, index) => (
-          <Card key={index} title={note.title} content={note.content} fileUrl={note.file_url} admin={isAdmin} noteId={note._id}/>
+        notes.slice(0, 6).map((note, index) => (  // Modify this line
+          <Card key={index} title={note.title} content={note.content} fileUrl={note.file_url} admin={isAdmin} noteId={note._id} />
         ))
       )}
     </div>
