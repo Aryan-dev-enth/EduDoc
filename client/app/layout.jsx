@@ -1,4 +1,4 @@
-import { Inter,Montserrat } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -18,8 +18,8 @@ export default function RootLayout({ children }) {
         <ClerkProvider>
           <Navbar />
           {children}
-          </ClerkProvider>
-          <Footer />
+        </ClerkProvider>
+        <Footer />
       </body>
     </html>
   );
